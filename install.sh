@@ -2,7 +2,7 @@
 
 [[ "$(whoami)" != "root" ]] && {
 echo
-echo "Instale Com Usuário Root!"
+echo "¡Instale como usuario Root!"
 echo
 rm -rf install.sh
 exit 0
@@ -12,14 +12,15 @@ ubuntuV=$(lsb_release -r | awk '{print $2}' | cut -d. -f1)
 
 [[ $(($ubuntuV < 20)) = 1 ]] && {
 clear
-echo "A Versão Do Ubuntu Tem Que Ser No Mínimo 20, A Sua É $ubuntuV"
+echo "La versión de Ubuntu debe ser mínimo 20, la suya es $ubuntuV"
 echo
 rm /root/install.sh
 exit 0
 }
+
 [[ -e /etc/DTunnel/src/index.ts ]] && {
   clear
-  echo "O Painel já está instalado, deseja remover? (s/n)"
+  echo "El Panel ya está instalado, ¿desea eliminarlo? (s/n)"
   read remo
   [[ $remo = @(s|S) ]] && {
   cd /etc/DTunnel
@@ -31,16 +32,17 @@ exit 0
   mv painelbackup.zip /root
   rm -rf /etc/DTunnel
   rm -rf /root/install.sh
-  echo "Removido com sucesso!"
+  echo "¡Eliminado con éxito!"
   exit 0
   }
   exit 0
 }
+
 clear
-echo "Em Qual Porta Você Quer Ativar?"
+echo "¿En qué puerto desea activar el panel?"
 read porta
 echo
-echo "Intalando Painel..."
+echo "Instalando Panel..."
 echo
 sleep 3
 #========================
@@ -58,7 +60,8 @@ curl -fsSL https://deb.nodesource.com/setup_20.x | bash
 apt-get install nodejs -y
 #=========================
 cd /etc/
-git clone https://github.com/yzeusy/DTunnel.git
+# Corregido para que clone TU repositorio de omar-campos
+git clone https://github.com/omar-campos/DTunnel.git
 cd /etc/DTunnel
 chmod 777 pon poff pmenu backmod
 mv pon poff pmenu backmod /bin
@@ -83,8 +86,8 @@ npx prisma db pull
 clear
 echo
 echo
-echo "PAINEL DTUNNEL INSTALADO!"
+echo "¡PANEL DTUNNEL INSTALADO!"
 echo
-echo "Digite: pmenu"
+echo "Escriba el comando: pmenu"
 echo
 rm -rf /root/install.sh
