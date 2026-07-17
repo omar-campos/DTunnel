@@ -1,0 +1,115 @@
+<div class="sidebar shadow">
+  <div class="sidebar-header">
+    <a href="/" target="_self">
+      <img src="../static/img/icon.jpg" width="40" height="40">
+      <span class="fs-4">CentralVPN</span>
+    </a>
+    <button id="closeNav">
+      <i class="bi bi-list-nested"></i>
+    </button>
+  </div>
+  <ul class="sidebar-nav">
+    <li class="nav-item">
+      <a href="/" target="_self" class="nav-link text-white <%~ it.active === 'home' ? 'active' : '' %>">
+        <i class="bi bi-house-door"></i>
+        <span>Home</span>
+      </a>
+    </li>
+	<li class="nav-item">
+      <div class="d-block nav-link accordion accordion-flush" id="user-accordion">
+        <div class="accordion-item bg-transparent w-100 p-0 m-0" style="border: none;">
+          <div class="accordion-header">
+            <button
+              type="button"
+              class="bg-transparent border-0 w-100 text-start text-white"
+              data-bs-toggle="collapse"
+              data-bs-target="#users-collapseOne"
+              aria-expanded="true"
+              aria-controls="user-collapseOne">
+              <i class="bi bi-gear"></i>
+              <span>Configurações</span>
+            </button>
+          </div
+        </div>
+        <div id="users-collapseOne" class="accordion-collapse collapse" data-bs-parent="#user-accordion">
+          <div class="accordion-body p-1">
+            <div class="d-flex gap-2 flex-column">
+              <a href="/configs" target="_self" class="nav-sub-link text-white text-white <%~ it.active === 'configs' ? 'active' : '' %>">
+                <i class="bi bi-gear"></i>
+                <span>Home</span>
+              </a>
+                <a href="/categories" target="_self" class="nav-sub-link text-white <%~ it.active === 'categories' ? 'active' : '' %>">
+                  <i class="bi bi-bookmark"></i>
+                  <span>Categorias</span>
+                </a>
+				<a href="/cdn" target="_self" class="nav-sub-link text-white <%~ it.active === 'cdn' ? 'active' : '' %>">
+                  <i class="bi bi-cloud"></i>
+                  <span>CDN</span>
+                </a>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+	<li class="nav-item">
+      <a href="/texts" target="_self" class="nav-link text-white <%~ it.active === 'texts' ? 'active' : '' %>">
+        <i class="bi bi-file-text"></i>
+        <span>Textos</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/application" target="_self" class="nav-link text-white <%~ it.active === 'application' ? 'active' : '' %>">
+        <i class="bi bi-phone"></i>
+        <span>Layout</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/profile" target="_self" class="nav-link text-white <%~ it.active === 'profile' ? 'active' : '' %>">
+        <i class="bi bi-person"></i>
+        <span>Perfil</span>
+      </a>
+    </li>
+	<% if (it.user && it.user.email === 'admin@admin.com') { %>
+    <li class="nav-item">
+      <div class="d-block nav-link accordion accordion-flush" id="user-accordion">
+        <div class="accordion-item bg-transparent w-100 p-0 m-0" style="border: none;">
+          <div class="accordion-header">
+            <button
+              type="button"
+              class="bg-transparent border-0 w-100 text-start text-white"
+              data-bs-toggle="collapse"
+              data-bs-target="#users-collapseOne2"
+              aria-expanded="true"
+              aria-controls="user-collapseOne2">
+              <i class="bi bi-people"></i>
+              <span>Usuários</span>
+            </button>
+          </div
+        </div>
+        <div id="users-collapseOne2" class="accordion-collapse collapse" data-bs-parent="#user-accordion2">
+          <div class="accordion-body p-1">
+            <div class="d-flex gap-2 flex-column">
+              <a href="/user" target="_self" class="nav-sub-link text-white text-white <%~ it.active === 'user' ? 'active' : '' %>">
+                <i class="bi bi-person-plus"></i>
+                <span>Novo Usuário</span>
+              </a>
+                <a style="display: none;" href="/user_list" class="nav-sub-link text-white <%~ it.active === 'user-list' ? 'active' : '' %>">
+                  <i class="bi bi-list-ul"></i>
+                  <span>Lista de Usuários</span>
+                </a>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <% } %>
+    <li class="nav-item">
+      <a href="/logout" target="_self" class="nav-link text-white">
+        <i class="bi bi-box-arrow-left"></i>
+        <span>Sair</span>
+      </a>
+    </li>
+  </ul>
+</div>
