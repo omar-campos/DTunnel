@@ -17,4 +17,3 @@ Conéctate a tu VPS como usuario `root` y ejecuta el siguiente comando para inic
 
 ```bash
 cd /root && wget [https://raw.githubusercontent.com/omar-campos/DTunnel/main/install.sh](https://raw.githubusercontent.com/omar-campos/DTunnel/main/install.sh) && chmod +x install.sh && ./install.sh
-cd /root && ./install.sh
