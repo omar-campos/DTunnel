@@ -1,8 +1,8 @@
 #!/bin/bash
 
-fazerbackup() {
+hacerbackup() {
   clear
-  echo "Fazendo bakcup..."
+  echo "Haciendo copia de seguridad..."
   cd /etc/DTunnel
   #rm -r painelbackup > /dev/null
   #mkdir painelbackup > /dev/null
@@ -11,43 +11,46 @@ fazerbackup() {
   zip -r painelbackup.zip painelbackup
   mv painelbackup.zip /root
   echo
-  echo "painelbackup.zip salvo em /root"
+  echo "painelbackup.zip guardado en /root"
   echo
   exit 0
 }
-autobakcup() {
+
+autobackup() {
   clear
-  read -p "Deseja ativar o Auto Backup? (s/n) " atb
+  read -p "¿Desea activar el Auto Backup? (s/n) " atb
   [[ $atb = @(s|S) ]] && {
-    echo "Ativando...."
+    echo "Activando...."
     backmod
     echo
-    echo "Backup de 5 em 5 horas ativo!"
+    echo "¡Copia de seguridad cada 5 horas activa!"
     exit 0
   }
   pmenu
 }
-removerpainel() {
+
+removerpanel() {
   clear
-  read -p "Deseja remover o painel? (s/n) " rev
+  read -p "¿Desea eliminar el panel? (s/n) " rev
   [[ $rev = @(s|S) ]] && {
-    echo "Removendo..."
+    echo "Eliminando..."
     poff
     rm /bin/pon /bin/poff /bin/pmenu /bin/backmod
     rm -r /etc/DTunnel
-    echo "Removido com sucesso!"
+    echo "¡Eliminado con éxito!"
     exit 0
   }
   pmenu
 }
-restaurarback() {
+
+restaurarbackup() {
   clear
   [[ ! -e /root/painelbackup.zip ]] && {
-    echo "Arquivo painelbackup.zip não encontrado em /root"
+    echo "Archivo painelbackup.zip no encontrado en /root"
     sleep 4
     menuop
   }
-  read -p "Deseja Restaurar o Backup? (s/n) " rapi
+  read -p "¿Desea Restaurar la Copia de Seguridad? (s/n) " rapi
   [[ $rapi = @(s|S) ]] && {
     echo "Restaurando..."
     cd /etc/DTunnel
@@ -62,71 +65,75 @@ restaurarback() {
     rm -r painelbackup
     pon
     echo
-    echo "Backup restaurado com sucesso!"
+    echo "¡Copia de seguridad restaurada con éxito!"
     exit 0
   }
   [[ $rapi = @(n|N) ]] && {
-    echo "Voltando para o menu"
+    echo "Volviendo al menú"
     sleep 2
     pmenu
   }
   pmenu
 }
+
 #[[ ! -e /etc/DTunnel/src/index.ts ]] && exit 0
+
 pmenu() {
   clear
-  echo "Bem vindoª ao Painel DTunnel"
+  echo "Bienvenido/a al Panel DTunnel"
   echo 
-  echo "1. Ligar/Reiniciar painel"
-  echo "2. Reiniciar painel"
-  echo "3. Desligar painel"
-  echo "4. Fazer backup"
-  echo "5. Restaurar backup"
-  echo "6. Ativar Auto backup"
-  echo "7. Remover painel"
-  echo "0. Sair"
+  echo "1. Encender panel"
+  echo "2. Reiniciar panel"
+  echo "3. Apagar panel"
+  echo "4. Hacer copia de seguridad"
+  echo "5. Restaurar copia de seguridad"
+  echo "6. Activar Auto backup"
+  echo "7. Eliminar panel"
+  echo "0. Salir"
   read -p "> " resp
   if [[ $resp = "1" ]]; then
     #statements
     pon
-	echo "Ligado com sucesso!"
+    echo "¡Encendido con éxito!"
     sleep 3
     pmenu
-  elif [[ $resp = "2" ]]; then
+  fi
+  if [[ $resp = "2" ]]; then
     #statements
     clear
     pon
-    echo "Reiniciado com sucesso!"
+    echo "¡Reiniciado con éxito!"
     sleep 3
     pmenu
   elif [[ $resp = "3" ]]; then
     #statements
     clear
     poff
-    echo "Desligado com sucesso!"
+    echo "¡Apagado con éxito!"
     sleep 3
     pmenu
   elif [[ $resp = "4" ]]; then
     #statements
-    fazerbackup
+    hacerbackup
   elif [[ $resp = "5" ]]; then
     #statements
-    restaurarback
+    restaurarbackup
   elif [[ $resp = "6" ]]; then
     #statements
-    autobakcup
+    autobackup
   elif [[ $resp = "7" ]]; then
     #statements
-    removerpainel
+    removerpanel
   elif [[ $resp = "0" ]]; then
     #statements
-    echo "Saindo..."
+    echo "Saliendo..."
     exit 0
   else
-    echo "Opção inválida!"
+    echo "¡Opción inválida!"
     sleep 3
     clear
     pmenu
   fi
 }
+
 pmenu
