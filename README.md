@@ -16,4 +16,4 @@ Este es un panel de gestión para servidores (SSH/V2Ray) desarrollado con un bac
 Conéctate a tu VPS como usuario `root` y ejecuta el siguiente comando para iniciar la instalación automática:
 
 ```bash
-cd /root && wget [https://raw.githubusercontent.com/omar-campos/DTunnel/main/install.sh](https://raw.githubusercontent.com/omar-campos/DTunnel/main/install.sh) && chmod +x install.sh && ./install.sh
+cd /root Próximamente
