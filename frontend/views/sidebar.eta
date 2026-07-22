@@ -12,10 +12,10 @@
     <li class="nav-item">
       <a href="/" target="_self" class="nav-link text-white <%~ it.active === 'home' ? 'active' : '' %>">
         <i class="bi bi-house-door"></i>
-        <span>Home</span>
+        <span>Inicio</span>
       </a>
     </li>
-	<li class="nav-item">
+    <li class="nav-item">
       <div class="d-block nav-link accordion accordion-flush" id="user-accordion">
         <div class="accordion-item bg-transparent w-100 p-0 m-0" style="border: none;">
           <div class="accordion-header">
@@ -27,32 +27,31 @@
               aria-expanded="true"
               aria-controls="user-collapseOne">
               <i class="bi bi-gear"></i>
-              <span>Configurações</span>
+              <span>Configuraciones</span>
             </button>
-          </div
+          </div>
         </div>
         <div id="users-collapseOne" class="accordion-collapse collapse" data-bs-parent="#user-accordion">
           <div class="accordion-body p-1">
             <div class="d-flex gap-2 flex-column">
               <a href="/configs" target="_self" class="nav-sub-link text-white text-white <%~ it.active === 'configs' ? 'active' : '' %>">
                 <i class="bi bi-gear"></i>
-                <span>Home</span>
+                <span>Inicio</span>
               </a>
-                <a href="/categories" target="_self" class="nav-sub-link text-white <%~ it.active === 'categories' ? 'active' : '' %>">
-                  <i class="bi bi-bookmark"></i>
-                  <span>Categorias</span>
-                </a>
-				<a href="/cdn" target="_self" class="nav-sub-link text-white <%~ it.active === 'cdn' ? 'active' : '' %>">
-                  <i class="bi bi-cloud"></i>
-                  <span>CDN</span>
-                </a>
+              <a href="/categories" target="_self" class="nav-sub-link text-white <%~ it.active === 'categories' ? 'active' : '' %>">
+                <i class="bi bi-bookmark"></i>
+                <span>Categorías</span>
+              </a>
+              <a href="/cdn" target="_self" class="nav-sub-link text-white <%~ it.active === 'cdn' ? 'active' : '' %>">
+                <i class="bi bi-cloud"></i>
+                <span>CDN</span>
               </a>
             </div>
           </div>
         </div>
       </div>
     </li>
-	<li class="nav-item">
+    <li class="nav-item">
       <a href="/texts" target="_self" class="nav-link text-white <%~ it.active === 'texts' ? 'active' : '' %>">
         <i class="bi bi-file-text"></i>
         <span>Textos</span>
@@ -61,7 +60,7 @@
     <li class="nav-item">
       <a href="/application" target="_self" class="nav-link text-white <%~ it.active === 'application' ? 'active' : '' %>">
         <i class="bi bi-phone"></i>
-        <span>Layout</span>
+        <span>Diseño</span>
       </a>
     </li>
     <li class="nav-item">
@@ -70,7 +69,7 @@
         <span>Perfil</span>
       </a>
     </li>
-	<% if (it.user && it.user.email === 'admin@admin.com') { %>
+    <% if (it.user && it.user.email === 'admin@admin.com') { %>
     <li class="nav-item">
       <div class="d-block nav-link accordion accordion-flush" id="user-accordion">
         <div class="accordion-item bg-transparent w-100 p-0 m-0" style="border: none;">
@@ -83,21 +82,20 @@
               aria-expanded="true"
               aria-controls="user-collapseOne2">
               <i class="bi bi-people"></i>
-              <span>Usuários</span>
+              <span>Usuarios</span>
             </button>
-          </div
+          </div>
         </div>
         <div id="users-collapseOne2" class="accordion-collapse collapse" data-bs-parent="#user-accordion2">
           <div class="accordion-body p-1">
             <div class="d-flex gap-2 flex-column">
               <a href="/user" target="_self" class="nav-sub-link text-white text-white <%~ it.active === 'user' ? 'active' : '' %>">
                 <i class="bi bi-person-plus"></i>
-                <span>Novo Usuário</span>
+                <span>Nuevo Usuario</span>
               </a>
-                <a style="display: none;" href="/user_list" class="nav-sub-link text-white <%~ it.active === 'user-list' ? 'active' : '' %>">
-                  <i class="bi bi-list-ul"></i>
-                  <span>Lista de Usuários</span>
-                </a>
+              <a style="display: none;" href="/user_list" class="nav-sub-link text-white <%~ it.active === 'user-list' ? 'active' : '' %>">
+                <i class="bi bi-list-ul"></i>
+                <span>Lista de Usuarios</span>
               </a>
             </div>
           </div>
@@ -108,7 +106,7 @@
     <li class="nav-item">
       <a href="/logout" target="_self" class="nav-link text-white">
         <i class="bi bi-box-arrow-left"></i>
-        <span>Sair</span>
+        <span>Cerrar Sesión</span>
       </a>
     </li>
   </ul>
