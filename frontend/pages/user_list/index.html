@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" translate="no" data-bs-theme="light">
+<html lang="es" translate="no" data-bs-theme="light">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="shortcut icon" href="../static/img/favicon.svg" />
-  <title>Usuários</title>
+  <title>Usuarios</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
@@ -30,21 +30,21 @@
 
             <!-- Título -->
             <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
-              <h1 class="h4 mb-0">Usuários</h1>
+              <h1 class="h4 mb-0">Usuarios</h1>
             </div>
 
-            <!-- Área do Prisma Studio -->
+            <!-- Área de Prisma Studio -->
             <% if (it.user && it.user.email === 'admin@admin.com') { %>
               <iframe 
                 src="http://18.231.138.75:5656/" 
                 style="width:100%; height:100%; border:none;" 
-                title="Usuários"
+                title="Usuarios"
               ></iframe>
             <% } else { %>
               <div class="p-5 text-center">
                 <i class="bi bi-shield-lock display-4 text-danger mb-3"></i>
-                <h5>Acesso restrito</h5>
-                <p class="text-muted">Apenas administradores podem acessar</p>
+                <h5>Acceso restringido</h5>
+                <p class="text-muted">Solo los administradores pueden acceder</p>
               </div>
             <% } %>
 
