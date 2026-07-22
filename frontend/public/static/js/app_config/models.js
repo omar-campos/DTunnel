@@ -5,7 +5,7 @@ class Type {
     }
 
     convert() {
-        throw new Error('Not implemented');
+        throw new Error('No implementado');
     }
 
     static create(name, value) {
