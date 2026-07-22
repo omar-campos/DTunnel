@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="es">
 
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="description" content="Painel de controle do DTunnel" />
-	<meta name="keywords" content="DTunnel, painel de controle, servidor, vpn, proxy, ssh" />
+	<meta name="description" content="Panel de control de DTunnel" />
+	<meta name="keywords" content="DTunnel, panel de control, servidor, vpn, proxy, ssh" />
 	<title>Registro</title>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
@@ -223,37 +223,37 @@
 <body>
 	<div class="register-container">
 		<h1>DTunnelMod - Registro</h1>
-		<span class="error" id="error-message">Falha</span>
-		<span class="success" id="success-message">Sucesso</span>
+		<span class="error" id="error-message">Fallo</span>
+		<span class="success" id="success-message">Éxito</span>
 		<span class="loader" id="loader-message"></span>
 		<form id="register-form">
 			<div class="name-group">
 				<div class="form-group">
 					<i class="bi bi-person-fill icon"></i>
-					<input type="text" id="username" name="username" placeholder="Usuário" required />
+					<input type="text" id="username" name="username" placeholder="Usuario" required />
 				</div>
 			</div>
 			<div class="form-group">
 				<i class="bi bi-envelope-fill icon"></i>
-				<input type="email" id="email" name="email" placeholder="Digite seu e-mail" required />
+				<input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" required />
 			</div>
 			<div class="password-group">
 				<div class="form-group">
 					<i class="bi bi-lock-fill icon"></i>
-					<input type="password" id="password" name="password" placeholder="Digite sua senha" required />
+					<input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required />
 					<i class="bi bi-eye-slash icon" onclick="togglePassword('password')"></i>
 				</div>
 				<div class="form-group">
 					<i class="bi bi-lock-fill icon"></i>
-					<input type="password" id="confirm-password" name="confirm-password" placeholder="Confirme sua senha" required />
+					<input type="password" id="confirm-password" name="confirm-password" placeholder="Confirma tu contraseña" required />
 					<i class="bi bi-eye-slash icon" onclick="togglePassword('confirm-password')"></i>
 				</div>
 			</div>
-			<button type="submit" class="register-button">Cadastrar</button>
+			<button type="submit" class="register-button">Registrarse</button>
 		</form>
 		<div class="footer">
 			<p>
-				Já tem uma conta? <a href="/login">Faça login</a>
+				¿Ya tienes una cuenta? <a href="/login">Inicia sesión</a>
 			</p>
 		</div>
 	</div>
@@ -328,7 +328,7 @@
 			const data = Object.fromEntries(formData);
 
 			if (data.password !== data['confirm-password']) {
-				showAlertError('As senhas devem ser iguais');
+				showAlertError('Las contraseñas deben ser iguales');
 				return;
 			}
 
@@ -362,7 +362,7 @@
 					return;
 				}
 
-				showAlertSuccess('Cadastro realizado com sucesso! redirecionando...');
+				showAlertSuccess('¡Registro realizado con éxito! Redirigiendo...');
 				Elements.registerForm.reset();
 				setTimeout(() => {
 					window.location = '/login';
