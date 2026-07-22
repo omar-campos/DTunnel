@@ -70,13 +70,13 @@ npm install -g pm2
 #=========================
 
 cd /etc/
-git clone https://github.com/omar-campos/DTunnel.git[cite: 1, 2]
+git clone https://github.com/omar-campos/DTunnel.git
 cd /etc/DTunnel
 
-chmod +x pon poff pmenu backmod[cite: 2]
-mv pon poff pmenu backmod /bin[cite: 2]
+chmod +x pon poff pmenu backmod
+mv pon poff pmenu backmod /bin
 
-cp .env.example .env 2>/dev/null || touch .env[cite: 2]
+cp .env.example .env 2>/dev/null || touch .env
 
 # Guardar Dominio/IP y Puerto en las variables de entorno
 echo "DOMAIN=$domain" > .env
@@ -95,12 +95,12 @@ echo "JWT_SECRET_REFRESH=\"$token3\"" >> .env
 echo "Instalando módulos de Node.js..."
 npm install
 
-echo "Configurando base de datos..."[cite: 2]
-npx prisma generate[cite: 2]
-npx prisma db push[cite: 2]
+echo "Configurando base de datos..."
+npx prisma generate
+npx prisma db push
 
 echo "Compilando proyecto TypeScript..."
-npm run build[cite: 2]
+npm run build
 
 echo "Iniciando Panel con PM2..."
 npm run prod
@@ -111,10 +111,10 @@ pm2 save
 #=========================
 clear
 echo
-echo "¡PANEL DTUNNEL INSTALADO CON ÉXITO!"[cite: 2]
+echo "¡PANEL DTUNNEL INSTALADO CON ÉXITO!"
 echo "Dominio/IP configurado: $domain"
 echo "El panel se está ejecutando en el puerto: $porta"
 echo
-echo "Escriba el comando para gestionar: pmenu"[cite: 2]
+echo "Escriba el comando para gestionar: pmenu"
 echo
-rm -rf /root/install.sh[cite: 2]
+rm -rf /root/install.sh
