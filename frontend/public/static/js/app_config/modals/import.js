@@ -40,14 +40,14 @@ class AppConfigImportModal {
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Importar configurações</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title">Importar configuraciones</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body">
                     <textarea class="form-control mb-3 d-none" rows="10"></textarea>
                     <div class="__spinner d-none p-5">
                         <div class="spinner-border text-dark p-3" role="status">
-                            <span class="visually-hidden">Loading...</span>
+                            <span class="visually-hidden">Cargando...</span>
                         </div>
                     </div>
                     <div class="__preview d-flex align-items-center justify-content-center"></div>
@@ -56,12 +56,12 @@ class AppConfigImportModal {
                         <input type="text" class="form-control" id="import-url">
                     </div>
                     <div class="mb-3">
-                        <label for="import-file" class="form-label">AQUIVO</label>
+                        <label for="import-file" class="form-label">ARCHIVO</label>
                         <input class="form-control" type="file" id="import-file">
                     </div>
                 </div>
                 <div class="modal-footer d-flex flex-nowrap">
-                    <button type="button" class="btn btn-dark w-100 me-2" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-dark w-100 me-2" data-bs-dismiss="modal">Cerrar</button>
                     <button type="button" class="btn btn-dark w-100 btn__import">Importar</button>
                 </div>
             </div>
@@ -99,7 +99,7 @@ class AppConfigImportModal {
             this.preview.innerHTML = '';
             this.preview.appendChild(app.element);
         } catch (e) {
-            showToastError('Configurações inválidas!')
+            showToastError('¡Configuraciones inválidas!')
         };
     }
 
@@ -126,7 +126,7 @@ class AppConfigImportModal {
         const text = this.element.querySelector('textarea').value;
 
         if (!text) {
-            showToastError('Nenhuma configuração foi importada.');
+            showToastError('No se importó ninguna configuración.');
             return;
         }
 
@@ -134,7 +134,7 @@ class AppConfigImportModal {
             const config = JSON.parse(text);
             this.callbackOnImport(config);
         } catch (e) {
-            showToastError('Não foi possível importar configuração');
+            showToastError('No se pudo importar la configuración');
             return;
         }
     }
