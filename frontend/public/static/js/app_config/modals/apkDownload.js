@@ -3,37 +3,37 @@ class ApkDownloadModal {
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">BAIXAR APK</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">DESCARGAR APK</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body p-2">
                 <div class="d-flex flex-column gap-2 justify-content-center">
                     <div class="card">
                         <div class="card-body p-2">
                             <h5 class="card-title d-flex justify-content-center">TUTORIAL</h5>
-                            <p class="card-text">Assista esse vídeo para aprender como coloca suas credenciais no aplicativo.</p>
-                            <a href="#" class="btn btn-dark w-100 mt-2">Alterar as credenciais</a>
+                            <p class="card-text">Mira este video para aprender cómo ingresar tus credenciales en la aplicación.</p>
+                            <a href="#" class="btn btn-dark w-100 mt-2">Cambiar credenciales</a>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body p-2">
                             <h5 class="card-title d-flex justify-content-center">DTUNNEL SSH</h5>
-                            <p class="card-text">Esta versão contém apenas o modo de conexão SSH</p>
-                            <a href="#" class="btn btn-dark w-100 mt-2">BAIXAR</a>
+                            <p class="card-text">Esta versión solo contiene el modo de conexión SSH</p>
+                            <a href="#" class="btn btn-dark w-100 mt-2">DESCARGAR</a>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body p-2">
                             <h5 class="card-title d-flex justify-content-center">DTUNNEL PRO</h5>
-                            <p class="card-text">Esta versão contém apenas os modos de conexão SSH e OpenVPN</p>
-                            <a href="#" class="btn btn-dark w-100 mt-2">BAIXAR</a>
+                            <p class="card-text">Esta versión solo contiene los modos de conexión SSH y OpenVPN</p>
+                            <a href="#" class="btn btn-dark w-100 mt-2">DESCARGAR</a>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body p-2">
                             <h5 class="card-title d-flex justify-content-center">DTUNNEL V2RAY</h5>
-                            <p class="card-text">Esta versão contém apenas modos de conexão SSH, OpenVPN e V2RAY</p>
-                            <a href="#" class="btn btn-dark w-100 mt-2">BAIXAR</a>
+                            <p class="card-text">Esta versión solo contiene los modos de conexión SSH, OpenVPN y V2RAY</p>
+                            <a href="#" class="btn btn-dark w-100 mt-2">DESCARGAR</a>
                         </div>
                     </div>
                 </div>
