@@ -3,16 +3,16 @@ class UpdateModal {
         <div class="modal-dialog modal-lg modal-dialog-scrollable modal-fullscreen-md-down">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Configurações</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title">Configuraciones</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body p-1 row">
 
                 </div>
                 <div class="modal-footer">
                     <div class="d-flex w-100 justify-content-between">
-                        <button type="button" class="btn__close btn-responsive w-100 me-2" data-bs-dismiss="modal">Sair</button>
-                        <button type="button" class="btn__save btn-responsive w-100">Salvar</button>
+                        <button type="button" class="btn__close btn-responsive w-100 me-2" data-bs-dismiss="modal">Salir</button>
+                        <button type="button" class="btn__save btn-responsive w-100">Guardar</button>
                     </div>
                 </div>
             </div>
