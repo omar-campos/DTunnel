@@ -50,9 +50,23 @@ echo
 echo "Ingrese el IP o Dominio del servidor (ej. panel.midominio.com o 192.168.1.1):"
 read domain
 echo
-echo "¿En qué puerto desea activar el panel?"
-read porta
-echo
+
+# Expresión regular para validar formato de IP (IPv4)
+ip_regex="^([0-9]{1,3}\.){3}[0-9]{1,3}$"
+
+if [[ $domain =~ $ip_regex ]]; then
+    # Si es una IP, solicitar el puerto
+    echo "Se detectó una dirección IP."
+    echo "¿En qué puerto desea activar el panel?"
+    read porta
+    echo
+else
+    # Si es un dominio, asignar automáticamente el puerto 80
+    echo "Se detectó un Dominio. Se asignará automáticamente el puerto 80."
+    porta=80
+    echo
+fi
+
 echo "Instalando dependencias del sistema..."
 echo
 sleep 2
