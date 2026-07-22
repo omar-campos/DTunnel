@@ -93,7 +93,7 @@
                 <i class="bi bi-person-plus"></i>
                 <span>Nuevo Usuario</span>
               </a>
-              <a style="display: none;" href="/user_list" class="nav-sub-link text-white <%~ it.active === 'user-list' ? 'active' : '' %>">
+              <a href="/user_list" class="nav-sub-link text-white <%~ it.active === 'user-list' ? 'active' : '' %>">
                 <i class="bi bi-list-ul"></i>
                 <span>Lista de Usuarios</span>
               </a>
