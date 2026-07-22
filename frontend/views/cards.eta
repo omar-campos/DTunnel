@@ -1,7 +1,7 @@
 <div class="main-content-container container-fluid px-4">
   <div class="mb-2">
     <h4 class="fw-bold">
-      <i class="bi bi-calendar-check me-2"></i> Informações da Conta
+      <i class="bi bi-calendar-check me-2"></i> Información de la Cuenta
     </h4>
     <hr />
   </div>
@@ -10,7 +10,7 @@
       <div class="card shadow border border-0">
         <div class="card-body text-center">
           <i class="bi bi-calendar-plus fs-1 mb-2"></i>
-          <p class="fs-4">Registrado em</p>
+          <p class="fs-4">Registrado el</p>
           <div class="fs-5 bg-dark rounded-pill text-white ps-2">
             <%= it.formatDate(it.user.created_at) %>
           </div>
@@ -21,7 +21,7 @@
       <div class="card shadow border border-0">
         <div class="card-body text-center">
           <i class="bi bi-arrow-repeat fs-1 mb-2"></i>
-          <p class="fs-4">Atualizado em</p>
+          <p class="fs-4">Actualizado el</p>
           <div class="fs-5 bg-dark rounded-pill text-white ps-2">
             <%= it.formatDate(it.user.updated_at) %>
           </div>
@@ -32,7 +32,7 @@
       <div class="card shadow border border-0">
         <div class="card-body text-center">
           <i class="bi bi-hourglass-split fs-1 mb-2"></i>
-          <p class="fs-4">Expira em</p>
+          <p class="fs-4">Expira el</p>
           <div class="d-flex gap-3">
             <div class="fs-5 bg-dark rounded-pill text-white flex-fill ps-2">
               <i class="bi bi-infinity"></i>
@@ -46,7 +46,7 @@
   <div class="row">
     <div class="mb-2">
       <h4 class="fw-bold">
-        <i class="bi bi-graph-up me-2"></i> Estatísticas do Sistema
+        <i class="bi bi-graph-up me-2"></i> Estadísticas del Sistema
       </h4>
       <hr />
     </div>
@@ -57,7 +57,7 @@
             <div class="rounded-circle bg-dark bg-opacity-10 mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 70px; height: 70px">
               <i class="bi bi-gear fs-1 text-light"></i>
             </div>
-            <p class="fw-bold fs-6">TOTAL DE CONFIGURAÇÕES</p>
+            <p class="fw-bold fs-6">TOTAL DE CONFIGURACIONES</p>
             <p class="__config fs-1"></p>
             <p class="__config__placeholder fs-1 placeholder-glow">
               <span class="placeholder rounded rounded-pill col-3 p-3"></span>
@@ -76,7 +76,7 @@
             <div class="rounded-circle bg-dark bg-opacity-10 mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 70px; height: 70px">
               <i class="bi bi-tags fs-1 text-light"></i>
             </div>
-            <p class="fw-bold fs-6">TOTAL DE CATEGORIAS</p>
+            <p class="fw-bold fs-6">TOTAL DE CATEGORÍAS</p>
             <p class="__category fs-1"></p>
             <p class="placeholder-glow fs-1 __category__placeholder">
               <span class="placeholder rounded rounded-pill col-3 p-3"></span>
