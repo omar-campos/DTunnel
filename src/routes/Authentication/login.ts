@@ -7,7 +7,7 @@ import csrfProtection from '../../middlewares/csrf-protection';
 import { FastifyReply, FastifyRequest, RouteOptions } from 'fastify';
 
 const loginSchema = z.object({
-  email: z.email(),
+  email: z.string().email(),
   password: z.string().min(6).max(20),
 });
 
@@ -24,7 +24,7 @@ export default {
       })
     );
 
-    if (!user || !BCrypt.compare(password, user.password)) {
+    if (!user || !(await BCrypt.compare(password, user.password))) {
       reply.status(401);
       reply.header('csrf-token', req.csrfProtection.generateCsrf());
       throw new Error('Usuário e/ou senha inválidos');
