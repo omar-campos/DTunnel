@@ -43,6 +43,13 @@ ubuntuV=$(lsb_release -r | awk '{print $2}' | cut -d. -f1)
 }
 
 clear
+echo "=========================================="
+echo "      CONFIGURACIÓN DEL PANEL DTUNNEL     "
+echo "=========================================="
+echo
+echo "Ingrese el IP o Dominio del servidor (ej. panel.midominio.com o 192.168.1.1):"
+read domain
+echo
 echo "¿En qué puerto desea activar el panel?"
 read porta
 echo
@@ -63,14 +70,17 @@ npm install -g pm2
 #=========================
 
 cd /etc/
-git clone https://github.com/omar-campos/DTunnel.git
+git clone https://github.com/omar-campos/DTunnel.git[cite: 1, 2]
 cd /etc/DTunnel
 
-chmod +x pon poff pmenu backmod
-mv pon poff pmenu backmod /bin
+chmod +x pon poff pmenu backmod[cite: 2]
+mv pon poff pmenu backmod /bin[cite: 2]
 
-cp .env.example .env 2>/dev/null || touch .env
-echo "PORT=$porta" > .env
+cp .env.example .env 2>/dev/null || touch .env[cite: 2]
+
+# Guardar Dominio/IP y Puerto en las variables de entorno
+echo "DOMAIN=$domain" > .env
+echo "PORT=$porta" >> .env
 echo "NODE_ENV=\"production\"" >> .env
 echo "DATABASE_URL=\"file:./database.db\"" >> .env
 
@@ -85,12 +95,12 @@ echo "JWT_SECRET_REFRESH=\"$token3\"" >> .env
 echo "Instalando módulos de Node.js..."
 npm install
 
-echo "Configurando base de datos..."
-npx prisma generate
-npx prisma db push
+echo "Configurando base de datos..."[cite: 2]
+npx prisma generate[cite: 2]
+npx prisma db push[cite: 2]
 
 echo "Compilando proyecto TypeScript..."
-npm run build
+npm run build[cite: 2]
 
 echo "Iniciando Panel con PM2..."
 npm run prod
@@ -101,9 +111,10 @@ pm2 save
 #=========================
 clear
 echo
-echo "¡PANEL DTUNNEL INSTALADO CON ÉXITO!"
+echo "¡PANEL DTUNNEL INSTALADO CON ÉXITO!"[cite: 2]
+echo "Dominio/IP configurado: $domain"
 echo "El panel se está ejecutando en el puerto: $porta"
 echo
-echo "Escriba el comando para gestionar: pmenu"
+echo "Escriba el comando para gestionar: pmenu"[cite: 2]
 echo
-rm -rf /root/install.sh
+rm -rf /root/install.sh[cite: 2]
