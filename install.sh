@@ -35,7 +35,9 @@ if [[ -e /etc/DTunnel/src/index.ts ]]; then
     tar -czf painelbackup.tar.gz painelbackup 2>/dev/null
     mv painelbackup.tar.gz /root/ 2>/dev/null
     
+    # Detener tanto el panel como Prisma Studio al desinstalar
     pm2 delete ecosystem.config.js > /dev/null 2>&1
+    pm2 delete PrismaStudio > /dev/null 2>&1
     
     rm -rf /etc/DTunnel
     rm -f "$0"
@@ -133,6 +135,11 @@ npx prisma db push
 echo "Compilando proyecto TypeScript..."
 npx tsc || true
 
+echo "Configurando e iniciando Prisma Studio en segundo plano..."
+# INTEGRACIÓN DE TU PARTE AQUÍ:
+pm2 delete PrismaStudio 2>/dev/null || true
+pm2 start "npx prisma studio --port 5656 --hostname 0.0.0.0 --browser none" --name PrismaStudio
+
 echo "Iniciando Panel con PM2..."
 pm2 start ecosystem.config.js
 pm2 startup
@@ -143,6 +150,7 @@ echo
 echo "¡PANEL DTUNNEL INSTALADO CON ÉXITO!"
 echo "Dominio/IP configurado: $domain"
 echo "El panel se está ejecutando en el puerto: $porta"
+echo "Prisma Studio disponible en: http://$domain:5656"
 echo
 echo "Escriba el comando para gestionar: pmenu"
 echo
