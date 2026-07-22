@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" translate="no"  data-bs-theme="dark">
+<html lang="es" translate="no"  data-bs-theme="dark">
 
 <head>
   <base href="/" target="_blank">
@@ -7,7 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="google" content="notranslate">
   <link rel="shortcut icon" href="../static/img/favicon.svg" />
-  <title>Layout</title>
+  <title>Diseño</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
@@ -35,16 +35,16 @@
 
         <div class="card h-100 border border-0 overflow-auto">
           <div class="card-body m-0">
-            <h1 class="mt-2 h3 mb-4 text-gray-800">LAYOUT</h1>
+            <h1 class="mt-2 h3 mb-4 text-gray-800">DISEÑO</h1>
 
             <div class="d-md-flex justify-content-between align-items-center mb-3">
 
               <div class="col-md-2 mb-2">
                 <select class="form-select" id="app_config_status">
                   <option value="ACTIVE">
-                    ATIVO</option>
+                    ACTIVO</option>
                   <option value="INACTIVE">
-                    INATIVO</option>
+                    INACTIVO</option>
                   <option value="ALL" selected>
                     TODOS
                   </option>
@@ -55,17 +55,17 @@
                 <div class="d-flex mb-1" style="min-width: 300px;">
                   <button type="button" class="__create btn btn-dark flex-fill me-1 w-50">
                     <i class="bi bi-plus-lg"></i>
-                    <span>NOVO</span>
+                    <span>NUEVO</span>
                   </button>
                   <button type="button" class="__import btn btn-dark flex-fill w-50">
                     <i class="bi bi-file-earmark-arrow-up"></i>
-                    </i> <span>IMPORTAR</span>
+                    <span>IMPORTAR</span>
                   </button>
                 </div>
                 <div class="d-flex">
                   <button type="button" class="btn btn-dark flex-fill me-1 w-50 export-config" disabled>
                     <i class="bi bi-android"></i>
-                    </i><span>&nbsp;GERAR APK</span>
+                    <span>&nbsp;GENERAR APK</span>
                   </button>
                 </div>
               </div>
@@ -121,7 +121,7 @@
           'F11': cm => cm.setOption('fullScreen', !cm.getOption('fullScreen')),
           'Esc': cm => cm.setOption('fullScreen', false),
           'Ctrl-Space': 'autocomplete',
-          'Ctrl-S': () => console.log('Saving...'),
+          'Ctrl-S': () => console.log('Guardando...'),
         },
       });
       editor.on('change', editor => onchange(editor.doc.getValue()));
