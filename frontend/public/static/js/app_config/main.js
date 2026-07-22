@@ -207,7 +207,7 @@ const createInputApp = (config) => {
             if (item.name == 'APP_LAYOUT_WEBVIEW_ENABLED') {
                 input.setValidator(value => {
                     if (!config.app_layout_webview && value) {
-                        throw new Error('LAYOUT WEBVIEW Não pode ficar vazio.')
+                        throw new Error('LAYOUT WEBVIEW no puede estar vacío.')
                     }
                 });
             }
@@ -399,7 +399,7 @@ const main = async () => {
     appConfigList.observe(async (event, config) => {
         if (event == 'update') {
 
-            // showToastInfo('Salvando configuração...');
+            // showToastInfo('Guardando configuración...');
 
             const data = config.toJson();
             const url = config.id ? `/app_config/store/update/${config.id}` : '';
@@ -413,7 +413,7 @@ const main = async () => {
             });
 
             if (response.status === 200) {
-                showToastSuccess('Configuração salva com sucesso!');
+                showToastSuccess('¡Configuración guardada con éxito!');
                 return;
             }
 
@@ -423,22 +423,22 @@ const main = async () => {
                 return;
             }
 
-            showToastError('Erro ao salvar configuração!');
+            showToastError('¡Error al guardar la configuración!');
         }
     });
 
     appConfigList.observe(async (event, config) => {
         if (event == 'delete') {
 
-            //showToastInfo('Deletando configuração...');
+            //showToastInfo('Eliminando configuración...');
 
             const response = await fetch(`/app_layout/delete/${config.id}`, {
                 method: 'DELETE',
                 headers: {}
             });
-           
+            
             if (response.status === 204) {
-                showToastSuccess('Configuração deletada com sucesso!');
+                showToastSuccess('¡Configuración eliminada con éxito!');
                 main();
                 return;
             }
@@ -449,14 +449,14 @@ const main = async () => {
                 return;
             }
             
-            showToastError('Erro ao deletar configuração!');
+            showToastError('¡Error al eliminar la configuración!');
         }
     });
 
     appConfigList.observe(async (event, data) => {
         if (event == 'create') {
 
-            //showToastInfo('Criando configuração...');
+            //showToastInfo('Creando configuración...');
 
             const response = await fetch('/app_layout/create', {
                 method: 'POST',
@@ -464,7 +464,7 @@ const main = async () => {
             });
 
             if (response.status == 201) {
-                showToastSuccess('Layout criado com sucesso!');
+                showToastSuccess('¡Diseño creado con éxito!');
                 main();
                 return;
             }
@@ -476,14 +476,14 @@ const main = async () => {
                 return;
             }
 
-            showToastError('Erro ao criar layout!');
+            showToastError('¡Error al crear el diseño!');
         }
     });
 
     appConfigList.observe(async (event, id) => {
         if (event == 'toggle') {
 
-            // showToastInfo('Trocando configuração...');
+            // showToastInfo('Cambiando configuración...');
 
             const response = await fetch(`/app_layout/toogle/${id}`, {
                 method: 'PUT',
@@ -491,7 +491,7 @@ const main = async () => {
             });
 
             if (response.status === 200) {
-                showToastSuccess('Configuração trocada com sucesso!');
+                showToastSuccess('¡Configuración cambiada con éxito!');
                 main();
                 return;
             }
@@ -502,14 +502,14 @@ const main = async () => {
                 return;
             }
 
-            showToastError('Erro ao trocar configuração!');
+            showToastError('¡Error al cambiar la configuración!');
         }
     });
 
     appConfigList.observe(async (event, config) => {
         if (event == 'import') {
 
-            // showToastInfo('Importando configuração...');
+            // showToastInfo('Importando configuración...');
 
             const data = config.toJson();
             const response = await fetch('/app_layout/import', {
@@ -523,7 +523,7 @@ const main = async () => {
             main();
             
             if (response.status == 201) {
-                showToastSuccess('Configuração importada com sucesso!');
+                showToastSuccess('¡Configuración importada con éxito!');
                 return;
             }
 
@@ -533,28 +533,28 @@ const main = async () => {
                 return;
             }
 
-            showToastError('Erro ao importar configuração!');
+            showToastError('¡Error al importar la configuración!');
         }
     });
 
     appConfigList.observe(async (event, config) => {
         if (event === 'sync') {
-            // showToastInfo('Aguarde, sincronizando configuração...');
+            // showToastInfo('Por favor espere, sincronizando configuración...');
             let response = await fetch('/app_config/sync', { 'method': 'POST' });
             let result = await response.json();
             if (result.data && result.status != 201) {
-                showToastError('Erro ao sincronizar configuração padrão!');
+                showToastError('¡Error al sincronizar la configuración predeterminada!');
                 return;
             }
 
             response = await fetch('/app_config/store/sync', { 'method': 'POST' });
             result = await response.json();
             if (result.data && result.status != 201) {
-                showToastError('Erro ao sincronizar lista de configurações!');
+                showToastError('¡Error al sincronizar la lista de configuraciones!');
                 return;
             }
 
-            showToastSuccess('Parabéns, configuração sincronizada com sucesso!');
+            showToastSuccess('¡Felicidades, configuración sincronizada con éxito!');
             showLoading();
             getConfigApp();
         }
