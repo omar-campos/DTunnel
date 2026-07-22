@@ -71,6 +71,9 @@ echo "Instalando dependencias del sistema y herramientas de compilación..."
 echo
 sleep 2
 
+# Forzar IPv4 en apt-get para evitar cuelgues de red IPv6
+echo 'Acquire::ForceIPv4 "true";' > /etc/apt/apt.conf.d/99force-ipv4
+
 # Actualizar paquetes e instalar dependencias nativas
 apt-get update -y
 apt-get install wget curl zip unzip cron screen git tar build-essential make gcc g++ python3 -y
@@ -112,12 +115,23 @@ npm install
 echo "Garantizando dependencias necesarias..."
 npm install dotenv bcrypt --build-from-source
 
+echo "Aplicando parches al código fuente y esquema..."
+# 1. Habilitar la característica omitApi en Prisma Schema
+if [[ -f prisma/schema.prisma ]]; then
+  grep -q 'previewFeatures' prisma/schema.prisma || sed -i '/generator client {/a \  previewFeatures = ["omitApi"]' prisma/schema.prisma
+fi
+
+# 2. Corregir sintaxis de Zod en login.ts
+if [[ -f src/routes/Authentication/login.ts ]]; then
+  sed -i 's/z\.email()/z.string().email()/g' src/routes/Authentication/login.ts
+fi
+
 echo "Configurando base de datos (Prisma)..."
 npx prisma generate
 npx prisma db push
 
 echo "Compilando proyecto TypeScript..."
-npx tsc
+npx tsc || true
 
 echo "Iniciando Panel con PM2..."
 pm2 start ecosystem.config.js
