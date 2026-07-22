@@ -1,5 +1,7 @@
 #!/bin/bash
 
+shopt -s extglob
+
 [[ "$(whoami)" != "root" ]] && {
   echo
   echo "¡Instale como usuario Root!"
@@ -14,7 +16,7 @@ ubuntuV=$(lsb_release -r | awk '{print $2}' | cut -d. -f1)
   clear
   echo "La versión de Ubuntu debe ser mínimo 20, la suya es $ubuntuV"
   echo
-  rm /root/install.sh
+  rm -f /root/install.sh
   exit 0
 }
 
@@ -22,7 +24,7 @@ ubuntuV=$(lsb_release -r | awk '{print $2}' | cut -d. -f1)
   clear
   echo "El Panel ya está instalado, ¿desea eliminarlo? (s/n)"
   read remo
-  [[ $remo = @(s|S) ]] && {
+  if [[ "$remo" =~ ^[sS]$ ]]; then
     cd /etc/DTunnel
     rm -r painelbackup > /dev/null 2>&1
     mkdir painelbackup > /dev/null 2>&1
@@ -35,64 +37,60 @@ ubuntuV=$(lsb_release -r | awk '{print $2}' | cut -d. -f1)
     pm2 delete ecosystem.config.js > /dev/null 2>&1
     
     rm -rf /etc/DTunnel
-    rm -rf /root/install.sh
+    rm -f /root/install.sh
     echo "¡Eliminado con éxito! Respaldo guardado en /root/painelbackup.tar.gz"
     exit 0
-  }
+  fi
   exit 0
 }
 
 clear
 echo "=========================================="
-echo "      CONFIGURACIÓN DEL PANEL DTUNNEL     "
+echo "     CONFIGURACIÓN DEL PANEL DTUNNEL     "
 echo "=========================================="
 echo
 echo "Ingrese el IP o Dominio del servidor (ej. panel.midominio.com o 192.168.1.1):"
 read domain
 echo
 
-# Expresión regular para validar formato de IP (IPv4)
 ip_regex="^([0-9]{1,3}\.){3}[0-9]{1,3}$"
 
 if [[ $domain =~ $ip_regex ]]; then
-    # Si es una IP, solicitar el puerto
     echo "Se detectó una dirección IP."
     echo "¿En qué puerto desea activar el panel?"
     read porta
     echo
 else
-    # Si es un dominio, asignar automáticamente el puerto 80
     echo "Se detectó un Dominio. Se asignará automáticamente el puerto 80."
     porta=80
     echo
 fi
 
-echo "Instalando dependencias del sistema..."
+echo "Instalando dependencias del sistema y herramientas de compilación..."
 echo
 sleep 2
 
-#========================
+# Actualizar paquetes e instalar dependencias nativas
 apt-get update -y
-apt install wget curl zip unzip cron screen git tar -y
+apt-get install wget curl zip unzip cron screen git tar build-essential make gcc g++ python3 -y
 
 # Instalación de Node.js v20
 curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 apt-get install nodejs -y
 
-# PM2 Global
-npm install -g pm2
-#=========================
+# Herramientas globales de Node.js
+npm install -g pm2 typescript ts-node
 
 cd /etc/
 git clone https://github.com/omar-campos/DTunnel.git
 cd /etc/DTunnel
 
-chmod +x pon poff pmenu backmod
-mv pon poff pmenu backmod /bin
+chmod +x pon poff pmenu backmod 2>/dev/null
+mv pon poff pmenu backmod /bin 2>/dev/null
 
 cp .env.example .env 2>/dev/null || touch .env
 
-# Guardar Dominio/IP y Puerto en las variables de entorno
+# Guardar variables de entorno
 echo "DOMAIN=$domain" > .env
 echo "PORT=$porta" >> .env
 echo "NODE_ENV=\"production\"" >> .env
@@ -109,20 +107,21 @@ echo "JWT_SECRET_REFRESH=\"$token3\"" >> .env
 echo "Instalando módulos de Node.js..."
 npm install
 
-echo "Configurando base de datos..."
-npx prisma generate
-npx prisma db push
+echo "Garantizando dependencias necesarias..."
+npm install dotenv bcrypt --build-from-source
+
+echo "Configurando base de datos (Prisma v5)..."
+npx prisma@5.22.0 generate
+npx prisma@5.22.0 db push
 
 echo "Compilando proyecto TypeScript..."
-npm run build
+npx tsc
 
 echo "Iniciando Panel con PM2..."
-npm run prod
-
+pm2 start ecosystem.config.js
 pm2 startup
 pm2 save
 
-#=========================
 clear
 echo
 echo "¡PANEL DTUNNEL INSTALADO CON ÉXITO!"
@@ -131,4 +130,4 @@ echo "El panel se está ejecutando en el puerto: $porta"
 echo
 echo "Escriba el comando para gestionar: pmenu"
 echo
-rm -rf /root/install.sh
+rm -f /root/install.sh
