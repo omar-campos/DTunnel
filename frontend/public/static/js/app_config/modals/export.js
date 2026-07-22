@@ -67,8 +67,8 @@ class AppConfigExportModal {
     <div class="modal-dialog modal-md modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="showModalChooseExportOrPasteLabel">Exporta configuração</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="showModalChooseExportOrPasteLabel">Exportar configuración</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body">
                 <textarea class="form-control mb-3 d-none" rows="10"></textarea>
@@ -76,7 +76,7 @@ class AppConfigExportModal {
                 <div class="__items mb-3" style="display: none;">
                     <div class="d-flex flex-column w-100 gap-3">
                         <div class="w-auto">
-                            <label class="form-label">Link dos dados</label>
+                            <label class="form-label">Enlace de los datos</label>
                             <div class="input-group">
                                 <input type="text" class="form-control __link" readonly>
                                 <button class="btn btn-dark btn__copy__link" type="button">
@@ -85,7 +85,7 @@ class AppConfigExportModal {
                             </div>
                         </div>
                         <div class="w-auto">
-                            <label class="form-label">Link de pré-visualização</label>
+                            <label class="form-label">Enlace de vista previa</label>
                             <div class="input-group">
                                 <input type="text" class="form-control __share" readonly>
                                 <button class="btn btn-dark btn__copy__share" type="button">
@@ -97,12 +97,12 @@ class AppConfigExportModal {
                 </div>
                 <div class="__spinner justify-content-center p-3 d-none">
                     <div class="spinner-border p-3" role="status">
-                        <span class="visually-hidden">Loading...</span>
+                        <span class="visually-hidden">Cargando...</span>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button type="button" class="btn btn-dark w-100 me-3" data-type="FILE">ARQUIVO</button>
-                    <button type="button" class="btn btn-dark w-100" data-type="LINK" disabled>LINK</button>
+                    <button type="button" class="btn btn-dark w-100 me-3" data-type="FILE">ARCHIVOS</button>
+                    <button type="button" class="btn btn-dark w-100" data-type="LINK" disabled>ENLACE</button>
                 </div>
             </div>
         </div>
@@ -131,7 +131,7 @@ class AppConfigExportModal {
 
     copy(data) {
         navigator.clipboard.writeText(data);
-        showToastSuccess('Copiado com sucesso!');
+        showToastSuccess('¡Copiado con éxito!');
     }
 
     showLoading() {
@@ -145,7 +145,7 @@ class AppConfigExportModal {
     }
 
     async export(type) {
-        showToastInfo('Exportando configuração...');
+        showToastInfo('Exportando configuración...');
         this.showLoading();
 
         const config = this._root.querySelector('textarea').value;
@@ -159,7 +159,7 @@ class AppConfigExportModal {
         }
 
         this.hideLoading();
-        showToastSuccess('Configuração exportada com sucesso!');
+        showToastSuccess('¡Configuración exportada con éxito!');
     }
 
     show() {
