@@ -18,8 +18,8 @@ class Status {
 
     render() {
         this.element.innerHTML = `
-            <option value="ACTIVE">ATIVO</option>
-            <option value="INACTIVE">INATIVO</option>
+            <option value="ACTIVE">ACTIVO</option>
+            <option value="INACTIVE">INACTIVO</option>
             <option value="ALL">TODOS</option>
         `
         this.element.value = this.value
