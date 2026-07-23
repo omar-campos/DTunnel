@@ -274,7 +274,7 @@ class ConfigList extends Observable {
         const item = this.get(id);
         const newItem = ConfigModel.fromJson(JSON.parse(JSON.stringify(item)));
         delete newItem.id;
-        newItem.name = `${newItem.name} (COPY)`;
+        newItem.name = `${newItem.name} (COPIA)`;
         this.append(newItem);
     }
 
@@ -292,7 +292,6 @@ class ConfigList extends Observable {
         });
     }
 }
-
 
 export {
     Mode,
