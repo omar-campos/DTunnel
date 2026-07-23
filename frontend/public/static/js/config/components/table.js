@@ -21,12 +21,12 @@ export default class Table {
                 <input class="form-check form-check-input check-item" type="checkbox">
               </th>
               <th scope="col" class="border-0" placeholder="#">#</th>
-              <th scope="col" class="border-0" placeholder="Nome">Nome</th>
-              <th scope="col" class="border-0" placeholder="Categoria">Categoria</th>
-              <th scope="col" class="border-0" placeholder="Ordem">Ordem</th>
+              <th scope="col" class="border-0" placeholder="Nombre">Nombre</th>
+              <th scope="col" class="border-0" placeholder="Categoría">Categoría</th>
+              <th scope="col" class="border-0" placeholder="Orden">Orden</th>
               <th scope="col" class="border-0" placeholder="Modo">Modo</th>
-              <th scope="col" class="border-0" placeholder="Status">Status</th>
-              <th scope="col" class="border-0" placeholder="Ações">Ações</th>
+              <th scope="col" class="border-0" placeholder="Estado">Estado</th>
+              <th scope="col" class="border-0" placeholder="Acciones">Acciones</th>
             </tr>
           </thead>
           <tbody></tbody>
