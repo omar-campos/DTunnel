@@ -9,15 +9,15 @@ class ExportConfigModal {
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Exportar configurações</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Exportar configuraciones</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="d-flex flex-column">
                         <textarea class="form-control mb-3 mh-100" cols="30" rows="10"></textarea>
                         <div class="d-flex justify-content-between gap-3">
-                            <button type="button" class="btn-responsive w-100 opacity-75" style="display: none;">LINK</button>
-                            <button type="button" class="btn-responsive w-100">ARQUIVO</button>
+                            <button type="button" class="btn-responsive w-100 opacity-75" style="display: none;">ENLACE</button>
+                            <button type="button" class="btn-responsive w-100">ARCHIVO</button>
                             <button type="button" class="btn-responsive w-100">APP</button>
                             <button type="button" class="btn-responsive w-100">COPIAR</button>
                         </div>
@@ -58,7 +58,7 @@ class ExportConfigModal {
             const content = this.textArea.value;
 
             if (!content || content === '') {
-                showToastError('Não há configurações para exportar!');
+                showToastError('¡No hay configuraciones para exportar!');
                 return;
             }
 
@@ -82,7 +82,7 @@ class ExportConfigModal {
         } else {
             window.navigator.clipboard.writeText(this.textArea.value);
         }
-        showToastSuccess('Configuração copiada com sucesso!');
+        showToastSuccess('¡Configuración copiada con éxito!');
     }
 }
 
