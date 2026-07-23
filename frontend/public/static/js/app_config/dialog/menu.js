@@ -65,7 +65,7 @@ class DialogMenu extends AbsDialog {
     }
 
     render() {
-        this.dialogHeader.setTitle('ESCOLHA UMA OPÇÃO');
+        this.dialogHeader.setTitle('ELIJA UNA OPCIÓN');
         this.dialogHeader.setCloseButton(e => {
             e.stopPropagation();
             this.close();
@@ -86,7 +86,7 @@ class DialogMenuImpl {
     __createItems() {
         return [
             {
-                text: 'Dialog padrão',
+                text: 'Diálogo por defecto',
                 icon: 'bi bi-chat',
                 fn: () => {
                     console.log('Item 1');
@@ -94,7 +94,7 @@ class DialogMenuImpl {
                 }
             },
             {
-                text: 'Dialog de configuração',
+                text: 'Diálogo de configuración',
                 icon: 'bi bi-chat',
                 fn: () => {
                     console.log('Item 2');
@@ -102,7 +102,7 @@ class DialogMenuImpl {
                 }
             },
             {
-                text: 'Dialog de log',
+                text: 'Diálogo de registro',
                 icon: 'bi bi-chat',
                 fn: () => {
                     console.log('Item 2');
@@ -110,7 +110,7 @@ class DialogMenuImpl {
                 }
             },
             {
-                text: 'Sair',
+                text: 'Salir',
                 icon: 'bi bi-x-lg',
                 fn: () => {
                     console.log('Item 3');
