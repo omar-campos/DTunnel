@@ -1,4 +1,3 @@
-
 class CdnModal {
     constructor(form) {
         this.form = form
@@ -9,13 +8,13 @@ class CdnModal {
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">CDN</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body">
                 </div>
                 <div class="modal-footer d-flex justify-content-between flex-nowrap">
-                    <button type="button" class="btn-responsive w-100 me-2" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn-responsive w-100">Salvar</button>
+                    <button type="button" class="btn-responsive w-100 me-2" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn-responsive w-100">Guardar</button>
                 </div>
             </div>
         `
@@ -47,7 +46,7 @@ class CdnForm {
     __html = `
         <div class="mb-3 row">
             <div class="col-md-12 mb-2">
-                <label class="form-label">Nome</label>
+                <label class="form-label">Nombre</label>
                 <input type="text" class="__name form-control" required>
             </div>
             <div class="col-md-12">
@@ -57,10 +56,10 @@ class CdnForm {
         </div>
         <div class="mb-3 row">
             <div class="col-md-12">
-                <label class="form-label">Status</label>
+                <label class="form-label">Estado</label>
                 <select class="__status form-select">
-                    <option value="ACTIVE">ATIVO</option>
-                    <option value="INACTIVE">INATIVO</option>
+                    <option value="ACTIVE">ACTIVO</option>
+                    <option value="INACTIVE">INACTIVO</option>
                 </select>
             </div>
         </div>
