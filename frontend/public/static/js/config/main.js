@@ -19,8 +19,8 @@ const categories = new CategoryList();
 const pagination = new Pagination(document.querySelector('#pagination'));
 const search = new Search(document.querySelector('.search-config'));
 const status = new ConfigStatus(document.querySelector('.config-status'), [
-    { value: Status.ACTIVE, text: 'ATIVO' },
-    { value: Status.INACTIVE, text: 'INATIVO' },
+    { value: Status.ACTIVE, text: 'ACTIVO' },
+    { value: Status.INACTIVE, text: 'INACTIVO' },
     { value: 'ALL', text: 'TODOS' },
 ], Status.ACTIVE);
 
@@ -40,7 +40,7 @@ const initApp = async () => {
 
 document.querySelector('.create-config').onclick = () => {
     if (categories.categories.length <= 0) {
-        showToastError('Não foram encontradas categorias.');
+        showToastError('No se encontraron categorías.');
         return;
     }
 
@@ -65,7 +65,7 @@ document.querySelector('.create-config').onclick = () => {
 document.querySelector('.delete-config').onclick = () => {
     const items = table.getCheckedItems();
     if (items.length <= 0) {
-        showToastError('Selecione pelo menos uma configuração.');
+        showToastError('Seleccione al menos una configuración.');
         return;
     }
 
@@ -79,7 +79,7 @@ document.querySelector('.delete-config').onclick = () => {
 document.querySelector('.export-config').onclick = () => {
     const items = table.getCheckedItems();
     if (items.length <= 0) {
-        showToastError('Selecione pelo menos uma configuração.');
+        showToastError('Seleccione al menos una configuración.');
         return;
     }
 
@@ -184,7 +184,7 @@ const getConfigAndCategory = async () => {
     } catch (error) {
         const errorElement = new InternalError(document.querySelector('.card'));
         errorElement.render();
-        showToastError('Erro interno.');
+        showToastError('Error interno.');
     }
 };
 
@@ -206,7 +206,7 @@ list.register(new Observer('append', async item => {
 
         if (response.status == 201) {
             item.id = data.config_id;
-            showToastSuccess('Configuração criada com sucesso!');
+            showToastSuccess('¡Configuración creada con éxito!');
             renderApp();
             return;
         }
@@ -219,7 +219,7 @@ list.register(new Observer('append', async item => {
         }
 
     } catch (err) {
-        showToastError('Não foi possível criar a configuração!');
+        showToastError('¡No fue posible crear la configuración!');
         list.remove(item.id);
         categories.remove(item.id);
     }
@@ -245,7 +245,7 @@ list.register(new Observer('update', async item => {
         if (csrfTokenRefresh) csrfToken = csrfTokenRefresh;
 
         if (response.status === 200) {
-            showToastSuccess('Configuração atualizada com sucesso!');
+            showToastSuccess('¡Configuración actualizada con éxito!');
             return;
         }
 
@@ -256,7 +256,7 @@ list.register(new Observer('update', async item => {
         }
 
     } catch (err) {
-        showToastError('Não foi possível atualizar configuração!');
+        showToastError('¡No fue posible actualizar la configuración!');
     } finally {
         renderApp();
     }
@@ -274,7 +274,7 @@ list.register(new Observer('remove', async id => {
         });
 
         if (response.status == 204) {
-            showToastSuccess('Configuração removida com sucesso!');
+            showToastSuccess('¡Configuración eliminada con éxito!');
             return;
         }
 
@@ -283,7 +283,7 @@ list.register(new Observer('remove', async id => {
         return;
             
     } catch (err) {
-        showToastError('Não foi possível remover a configuração!');
+        showToastError('¡No fue posible eliminar la configuración!');
     } finally {
         renderApp();
     }
