@@ -5,8 +5,8 @@ class RegisterService {
             method: 'POST',
             body: JSON.stringify({
                 username: data.username,
-	            password: data.password,
-	            email: data.email,
+                password: data.password,
+                email: data.email,
             }),
             headers: {
                 'csrf-token': data.csrfToken,
@@ -56,22 +56,22 @@ class RegisterForm {
     async #validate() {
 
         if (this.formData.get('password') != this.formData.get('confirm_password')) {
-            throw new Error('As senhas não coincidem.')
+            throw new Error('Las contraseñas no coinciden.')
         }
 
         const pattern = /^[a-zA-Z0-9@]+$/;
         const username = this.formData.get('username');
 
         if (!pattern.test(username)) {
-            throw new Error('Esse nome de usuario não e valido')
+            throw new Error('Este nombre de usuario no es válido.')
         }
 
         if (username.length < 6) {
-            throw new Error('Use um nome de usuario maior')
+            throw new Error('Usa un nombre de usuario más largo.')
         }
 
         if (this.formData.get('password').length < 6) {
-            throw new Error('Use uma senha maior')
+            throw new Error('Usa una contraseña más larga.')
         }
 
     }
@@ -93,29 +93,29 @@ class RegisterModalSuccess {
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content bg-dark text-white">
                     <div class="modal-header">
-                        <h5 class="modal-title">Parabéns</h5>
+                        <h5 class="modal-title">¡Felicidades!</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="text-center">
                             <img src="https://cdn-icons-png.flaticon.com/512/1642/1642423.png" width="200" height="200">
-                            <p class="fs-2 text-success">Conta registrada.</p>
+                            <p class="fs-2 text-success">Cuenta registrada.</p>
                         </div>
                         <div class="form-control bg-dark text-white __data" style="overflow-y: auto;">
                             <b>
-                                <p class="mb-2">Email: <span class="__email"></span></p>
+                                <p class="mb-2">Correo: <span class="__email"></span></p>
                             </b>
                             <b>
-                                <p class="mb-2">Senha: <span class="__password"></span></p>
+                                <p class="mb-2">Contraseña: <span class="__password"></span></p>
                             </b>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <div class="d-flex w-100 gap-3">
                             <div class="flex-fill">
-							<a href="${window.location.origin + '/user'}" class="flex-fill text-decoration-none">
-                            <button type="button" class="btn btn-dark w-100 border">Fechar</button>
+                            <a href="${window.location.origin + '/user'}" class="flex-fill text-decoration-none">
+                            <button type="button" class="btn btn-dark w-100 border">Cerrar</button>
                             </a>
                             </div>
                         </div>
@@ -149,14 +149,14 @@ class RegisterModalError {
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content bg-dark text-white">
                     <div class="modal-header">
-                        <h5 class="modal-title">ERRO</h5>
+                        <h5 class="modal-title">ERROR</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <span class="__error_message">
                             <p class="fs-3 text-danger">
-                                Não foi possível criar seu acesso, entre em contato com o suporte
+                                No fue posible crear su acceso, póngase en contacto con soporte.
                             </p>
                         </span>
                     </div>
