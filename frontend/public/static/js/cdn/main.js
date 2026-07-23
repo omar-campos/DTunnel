@@ -154,7 +154,7 @@ const main = async () => {
     cdnList.register(new Observer('add', async cdn => {
 
         render()
-        //showToastInfo(`Crinado CDN ${cdn.name}...`)
+        //showToastInfo(`Creando CDN ${cdn.name}...`)
 
         const response = await fetch('/cdn', {
             method: 'POST',
@@ -168,12 +168,12 @@ const main = async () => {
 
         if (response.status == 201) {
             cdn.id = data.cdn_id;
-            showToastSuccess(`CDN ${cdn.name} criada com sucesso!`)
+            showToastSuccess(`¡CDN ${cdn.name} creada con éxito!`)
             render()
             return
         }
 
-        showToastError(`Erro ao criar CDN ${cdn.name}!`)
+        showToastError(`¡Error al crear la CDN ${cdn.name}!`)
         cdnList.remove(cdn)
         render()
     }))
@@ -181,7 +181,7 @@ const main = async () => {
     cdnList.register(new Observer('remove', async cdn => {
         render()
 
-        // showToastInfo(`Removendo CDN ${cdn.name}...`)
+        // showToastInfo(`Eliminando CDN ${cdn.name}...`)
 
         try {
 
@@ -193,7 +193,7 @@ const main = async () => {
             });
 
             if (response.status == 204) {
-                showToastSuccess(`CDN ${cdn.name} removida com sucesso!`)
+                showToastSuccess(`¡CDN ${cdn.name} eliminada con éxito!`)
                 return
             }
 
@@ -204,7 +204,7 @@ const main = async () => {
             }
 
         } catch (err) {
-            showToastError(`Erro ao remover CDN ${cdn.name}!`)
+            showToastError(`¡Error al eliminar la CDN ${cdn.name}!`)
         }
 
         render()
@@ -213,7 +213,7 @@ const main = async () => {
     cdnList.register(new Observer('update', async cdn => {
         render()
 
-        //showToastInfo(`Atualizando categoria ${cdn.name}...`)
+        //showToastInfo(`Actualizando CDN ${cdn.name}...`)
 
         const response = await fetch(`/cdn/${cdn.id}`, {
             method: 'PUT',
@@ -229,11 +229,11 @@ const main = async () => {
         const data = await response.json();
 
         if (data.status == 200) {
-            showToastSuccess(`CDN ${cdn.name} atualizada com sucesso!`)
+            showToastSuccess(`¡CDN ${cdn.name} actualizada con éxito!`)
             return;
         }
 
-        showToastError(`Erro ao atualizar CDN ${cdn.name}!`)
+        showToastError(`¡Error al actualizar la CDN ${cdn.name}!`)
     }))
 
     const btnAdd = new ButtonAdd()
