@@ -13,13 +13,13 @@ class ConfigExportFile {
         a.href = url;
         a.click();
         URL.revokeObjectURL(url);
-        showToastSuccess('Opa! configuração exportada com sucesso!');;
+        showToastSuccess('¡Opa! ¡Configuración exportada con éxito!');
     }
 }
 
 class ConfigExportUrl {
     async export(data) {
-        showToastInfo('Aguarde enquanto a configuração é exportada...');
+        showToastInfo('Espere mientras se exporta la configuración...');
         const form = new FormData();
         const file = new File([data], 'config.json', { type: 'application/json' });
         form.append('file', file);
@@ -33,10 +33,10 @@ class ConfigExportUrl {
             if (result.status != 200)
                 throw new Error();
 
-            showToastSuccess('Opa! configuração exportada com sucesso!');
+            showToastSuccess('¡Opa! ¡Configuración exportada con éxito!');
             return result.data;
         } catch (e) {
-            showToastError('Ops! Não foi possível exportar a configuração!');
+            showToastError('¡Ops! ¡No fue posible exportar la configuración!');
         }
     }
 }
@@ -57,18 +57,18 @@ class ConfigExportApp {
             const response = await fetch('/app_config/export/app', options);
             const result = await response.json();
             if (result.config) {
-                showToastSuccess('Opa! configuração exportada com sucesso!');
+                showToastSuccess('¡Opa! ¡Configuración exportada con éxito!');
                 return `vpn://${result.config}`
             }
         } catch (e) {
-            showToastError('Ops! Não foi possível importar a configuração!');
+            showToastError('¡Ops! ¡No fue posible exportar la configuración!');
         }
     }
 
     validate(data) {
         const config = JSON.parse(data);
         if (Array.isArray(config)) {
-            showToastError('Infelizmente não é possível exportar múltiplas configurações para o app!');
+            showToastError('Desafortunadamente no es posible exportar múltiples configuraciones a la aplicación.');
             return false;
         }
         return true;
