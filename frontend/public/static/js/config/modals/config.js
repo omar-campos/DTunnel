@@ -5,7 +5,7 @@ export default class ModalConfigForm {
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">CONFIGURAÇÃO</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">CONFIGURACIÓN</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-start">
@@ -13,8 +13,8 @@ export default class ModalConfigForm {
                 </div>
                 <div class="modal-footer">
                     <div class="d-flex w-100 justify-content-between">
-                        <button type="button" class="btn-responsive me-1 w-100" data-bs-dismiss="modal">Fechar</button>
-                        <button class="btn-responsive btn-primary w-100">Salvar</button>
+                        <button type="button" class="btn-responsive me-1 w-100" data-bs-dismiss="modal">Cerrar</button>
+                        <button class="btn-responsive btn-primary w-100">Guardar</button>
                     </div>
                 </div>
             </div>
