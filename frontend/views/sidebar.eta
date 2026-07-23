@@ -93,7 +93,7 @@
                 <i class="bi bi-person-plus"></i>
                 <span>Nuevo Usuario</span>
               </a>
-              <a href="http://tuIP:5656/" target="_blank" rel="noopener noreferrer" class="nav-sub-link text-white <%~ it.active === 'user-list' ? 'active' : '' %>">
+              <a id="btn-lista-usuarios" href="#" target="_blank" rel="noopener noreferrer" class="nav-sub-link text-white <%~ it.active === 'user-list' ? 'active' : '' %>">
                 <i class="bi bi-list-ul"></i>
                 <span>Lista de Usuarios</span>
               </a>
@@ -111,3 +111,14 @@
     </li>
   </ul>
 </div>
+
+<script>
+  // Modifica dinámicamente el enlace tomando la IP/dominio actual del usuario
+  (function() {
+    const linkListaUsuarios = document.getElementById('btn-lista-usuarios');
+    if (linkListaUsuarios) {
+      const vpsHost = window.location.hostname;
+      linkListaUsuarios.href = 'http://' + vpsHost + ':5656/';
+    }
+  })();
+</script>
