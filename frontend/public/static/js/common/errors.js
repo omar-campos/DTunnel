@@ -8,9 +8,9 @@ class InternalError {
         const html = `
         <div class="d-flex flex-column justify-content-center align-items-center">
             <h1 class="text-dark">500</h1>
-            <h3 class="text-dark">Algo deu errado!</h3>
+            <h3 class="text-dark">¡Algo salió mal!</h3>
             <p class="text-dark">${this.message || ''}</p>
-            <a href="/" class="btn btn-dark rounded-pill">&larr; VOLTAR</a>
+            <a href="/" class="btn btn-dark rounded-pill">&larr; VOLVER</a>
         </div>`;
         this.element.innerHTML = html;
     }
@@ -25,8 +25,8 @@ class NotFoundError {
         const html = `
         <div class="d-flex flex-column justify-content-center align-items-center">
             <h1 class="text-dark">404</h1>
-            <h3 class="text-dark">Página não encontrada!</h3>
-            <a href="/logout" class="btn btn-dark rounded-pill">&larr; VOLTAR</a>
+            <h3 class="text-dark">¡Página no encontrada!</h3>
+            <a href="/logout" class="btn btn-dark rounded-pill">&larr; VOLVER</a>
         </div>`;
         this.element.innerHTML = html;
     }
@@ -41,8 +41,8 @@ class UnauthorizedError {
         const html = `
         <div class="d-flex flex-column justify-content-center align-items-center">
             <h1 class="text-dark">401</h1>
-            <h3 class="text-dark">Você não tem permissão para acessar essa página!</h3>
-            <a href="/logout" class="btn btn-dark rounded-pill">&larr; VOLTAR</a>
+            <h3 class="text-dark">¡No tienes permiso para acceder a esta página!</h3>
+            <a href="/logout" class="btn btn-dark rounded-pill">&larr; VOLVER</a>
         </div>`;
         this.element.innerHTML = html;
     }
