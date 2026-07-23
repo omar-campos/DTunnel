@@ -2,12 +2,12 @@ import AbsDialog from "./dialog.js";
 
 export default class DialogDefault extends AbsDialog {
     render() {
-        this.dialogHeader.setTitle('DIALOG PADRÃO');
+        this.dialogHeader.setTitle('DIÁLOGO POR DEFECTO');
         this.dialogHeader.setCloseButton(e => {
             e.stopPropagation();
             this.close();
         });
-        this.dialogContent.element.innerText = 'ESTE É UM DIALOG PADRÃO (CHECKUSER, MENSAGEM ETC...)'
+        this.dialogContent.element.innerText = 'ESTE ES UN DIÁLOGO POR DEFECTO (CHECKUSER, MENSAJE ETC...)'
         this.setStyle({ 'text-align': 'center' });
         super.render();
     }
