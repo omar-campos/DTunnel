@@ -51,7 +51,7 @@ class ConfigLoaderFactory {
             case 'LINK':
                 return new ConfigLoaderUrl();
             default:
-                throw new Error('Tipo de importação inválido!');
+                throw new Error('¡Tipo de importación inválido!');
         }
     }
 }
