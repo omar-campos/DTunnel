@@ -34,17 +34,18 @@
         <div id="users-collapseOne" class="accordion-collapse collapse" data-bs-parent="#user-accordion">
           <div class="accordion-body p-1">
             <div class="d-flex gap-2 flex-column">
-              <a href="/configs" target="_self" class="nav-sub-link text-white <%~ it.active === 'configs' ? 'active' : '' %>">
+              <a href="/configs" target="_self" class="nav-sub-link text-white text-white <%~ it.active === 'configs' ? 'active' : '' %>">
                 <i class="bi bi-gear"></i>
                 <span>Inicio</span>
               </a>
-              <a href="/categories" target="_self" class="nav-sub-link text-white <%~ it.active === 'categories' ? 'active' : '' %>">
-                <i class="bi bi-bookmark"></i>
-                <span>Categorías</span>
-              </a>
-              <a href="/cdn" target="_self" class="nav-sub-link text-white <%~ it.active === 'cdn' ? 'active' : '' %>">
-                <i class="bi bi-cloud"></i>
-                <span>CDN</span>
+                <a href="/categories" target="_self" class="nav-sub-link text-white <%~ it.active === 'categories' ? 'active' : '' %>">
+                  <i class="bi bi-bookmark"></i>
+                  <span>Categorías</span>
+                </a>
+                <a href="/cdn" target="_self" class="nav-sub-link text-white <%~ it.active === 'cdn' ? 'active' : '' %>">
+                  <i class="bi bi-cloud"></i>
+                  <span>CDN</span>
+                </a>
               </a>
             </div>
           </div>
@@ -71,7 +72,7 @@
     </li>
     <% if (it.user && it.user.email === 'admin@admin.com') { %>
     <li class="nav-item">
-      <div class="d-block nav-link accordion accordion-flush" id="user-accordion2">
+      <div class="d-block nav-link accordion accordion-flush" id="user-accordion">
         <div class="accordion-item bg-transparent w-100 p-0 m-0" style="border: none;">
           <div class="accordion-header">
             <button
@@ -89,13 +90,14 @@
         <div id="users-collapseOne2" class="accordion-collapse collapse" data-bs-parent="#user-accordion2">
           <div class="accordion-body p-1">
             <div class="d-flex gap-2 flex-column">
-              <a href="/user" target="_self" class="nav-sub-link text-white <%~ it.active === 'user' ? 'active' : '' %>">
+              <a href="/user" target="_self" class="nav-sub-link text-white text-white <%~ it.active === 'user' ? 'active' : '' %>">
                 <i class="bi bi-person-plus"></i>
                 <span>Nuevo Usuario</span>
               </a>
-              <a id="btn-lista-usuarios" href="#" target="_blank" rel="noopener noreferrer" class="nav-sub-link text-white <%~ it.active === 'user-list' ? 'active' : '' %>">
-                <i class="bi bi-list-ul"></i>
-                <span>Lista de Usuarios</span>
+                <a style="display: none;" href="/user_list" class="nav-sub-link text-white <%~ it.active === 'user-list' ? 'active' : '' %>">
+                  <i class="bi bi-list-ul"></i>
+                  <span>Lista de Usuarios</span>
+                </a>
               </a>
             </div>
           </div>
@@ -106,19 +108,8 @@
     <li class="nav-item">
       <a href="/logout" target="_self" class="nav-link text-white">
         <i class="bi bi-box-arrow-left"></i>
-        <span>Cerrar Sesión</span>
+        <span>Cerrar sesión</span>
       </a>
     </li>
   </ul>
 </div>
-
-<script>
-  // Modifica dinámicamente el enlace tomando la IP/dominio actual del usuario
-  (function() {
-    const linkListaUsuarios = document.getElementById('btn-lista-usuarios');
-    if (linkListaUsuarios) {
-      const vpsHost = window.location.hostname;
-      linkListaUsuarios.href = 'http://' + vpsHost + ':5656/';
-    }
-  })();
-</script>
