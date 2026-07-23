@@ -8,13 +8,13 @@ class ConfigImportModal {
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">IMPORTAR CONFIGURAÇÃO</h5>
+                <h5 class="modal-title">IMPORTAR CONFIGURACIÓN</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="d-flex flex-column gap-3">
                     <div class="w-100">
-                        <label class="form-label">CATEGORIA</label>
+                        <label class="form-label">CATEGORÍA</label>
                         <select class="form-select"></select>
                     </div>
                     <div class="w-100">
@@ -23,11 +23,11 @@ class ConfigImportModal {
                     </div>
                     <div class="d-flex gap-3">
                         <div class="w-100">
-                            <label class="form-label">ARQUIVO</label>
+                            <label class="form-label">ARCHIVO</label>
                             <input type="file" class="form-control">
                         </div>
                         <div class="w-100">
-                            <label class="form-label">LINK</label>
+                            <label class="form-label">ENLACE</label>
                             <input type="text" class="form-control">
                         </div>
                     </div>
@@ -35,7 +35,7 @@ class ConfigImportModal {
             </div>
             <div class="modal-footer">
                 <div class="d-flex flex-fill justify-content-end gap-3">
-                    <button type="button" class="btn btn-dark w-100" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-dark w-100" data-bs-dismiss="modal">Cerrar</button>
                     <button type="submit" class="btn btn-dark w-100">Importar</button>
                 </div>
             </div>
@@ -63,12 +63,12 @@ class ConfigImportModal {
         this.categorySelect.onchange = e => this.setCategoryId(e.target.value)
 
         this._element.querySelector('input[type="text"]').onchange = e => {
-            showToastInfo('Carregando configurações...')
+            showToastInfo('Cargando configuraciones...')
             this.load('LINK', e.target.value);
         }
 
         this._element.querySelector('input[type="file"]').onchange = e => {
-            showToastInfo('Carregando configurações...')
+            showToastInfo('Cargando configuraciones...')
             this.load('FILE', e.target.files[0]);
         }
 
@@ -109,7 +109,7 @@ class ConfigImportModal {
                 }));
                 item.setOnClickCopy(() => showAlertConfirm(() => {
                     const data = JSON.parse(JSON.stringify(config));
-                    data.name = data.name + ' (COPY)'
+                    data.name = data.name + ' (COPIA)'
                     items.push(data);
                     this.setTextAreaValue(items);
                 }));
@@ -170,11 +170,11 @@ class ConfigImportModal {
         try {
             const configContent = this._textArea.value;
             if (!configContent || configContent === '') {
-                showToastError('Não há configurações para importar!');
+                showToastError('¡No hay configuraciones para importar!');
                 return;
             }
 
-            showToastInfo('Importando configurações...');
+            showToastInfo('Importando configuraciones...');
 
             const obj = JSON.parse(configContent)
             const items = (Array.isArray(obj) ? obj : [obj]).map(item => ConfigModel.fromJson(item));
@@ -184,7 +184,7 @@ class ConfigImportModal {
 
             this?.onImportListener()
 
-            showToastSuccess('Configurações importadas com sucesso!');
+            showToastSuccess('¡Configuraciones importadas con éxito!');
             this.modal.hide();
         } catch (e) {
             showToastError(e.message);
@@ -204,7 +204,7 @@ class ConfigImportModal {
         this.categorySelect.innerHTML = '';
         const _default = document.createElement('option');
         _default.value = '';
-        _default.innerText = 'Selecione uma categoria';
+        _default.innerText = 'Seleccione una categoría';
         this.categorySelect.appendChild(_default);
 
         this.categorySelect.parentNode.classList.remove('d-none');
