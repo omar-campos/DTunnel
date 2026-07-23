@@ -9,14 +9,14 @@ class CategoryModal {
         this.element.innerHTML = `
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Categoria</h5>
+                    <h5 class="modal-title">Categoría</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                 </div>
                 <div class="modal-footer d-flex justify-content-between flex-nowrap">
-                    <button type="button" class="btn-responsive w-100 me-2" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn-responsive w-100">Salvar</button>
+                    <button type="button" class="btn-responsive w-100 me-2" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn-responsive w-100">Guardar</button>
                 </div>
             </div>
         `
@@ -48,24 +48,24 @@ class CategoryForm {
     __html = `
         <div class="mb-3 row">
             <div class="col-md-6">
-                <label class="form-label">Nome</label>
+                <label class="form-label">Nombre</label>
                 <input type="text" class="__name form-control" required>
             </div>
             <div class="col-md-6">
-                <label class="form-label">Ordem</label>
+                <label class="form-label">Orden</label>
                 <input type="number" class="__order form-control" required>
             </div> 
         </div>
         <div class="mb-3 row">
             <div class="col-md-6">
-                <label class="form-label">Cor</label>
+                <label class="form-label">Color</label>
                 <input type="text" class="__color form-control" required>
             </div>
             <div class="col-md-6">
-                <label class="form-label">Status</label>
+                <label class="form-label">Estado</label>
                 <select class="__status form-select">
-                    <option value="ACTIVE">ATIVO</option>
-                    <option value="INACTIVE">INATIVO</option>
+                    <option value="ACTIVE">ACTIVO</option>
+                    <option value="INACTIVE">INACTIVO</option>
                 </select>
             </div>
         </div>
