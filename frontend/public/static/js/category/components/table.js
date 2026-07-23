@@ -14,11 +14,11 @@ class CategoryTable {
                         <input class="form-check form-check-input check-item" type="checkbox">
                     </th>
                     <th>ID</th>
-                    <th>NOME</th>
-                    <th>ORDEM</th>
-                    <th scope="col">COR</th>
-                    <th>STATUS</th>
-                    <th>AÇÕES</th>
+                    <th>NOMBRE</th>
+                    <th>ORDEN</th>
+                    <th scope="col">COLOR</th>
+                    <th>ESTADO</th>
+                    <th>ACCIONES</th>
                 </tr>
             </thead>
             <tbody>
@@ -76,7 +76,7 @@ class TableItem {
             </td>
             <td>
                 <span class="badge text-bg-${this.category.status == 'ACTIVE' ? 'success' : 'danger'} rounded-pill">
-                    ${this.category.status == 'ACTIVE' ? 'ATIVO' : 'INATIVO'}
+                    ${this.category.status == 'ACTIVE' ? 'ACTIVO' : 'INACTIVO'}
                 </span>
             </td>
             <td>
