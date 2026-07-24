@@ -76,37 +76,6 @@ restaurarbackup() {
   pmenu
 }
 
-crearadmin() {
-  clear
-  echo "=== Crear / Restablecer Usuario Administrador ==="
-  echo
-  read -p "Ingrese el nombre de usuario admin: " user_admin
-  read -s -p "Ingrese la contraseña: " pass_admin
-  echo
-  
-  if [[ -z "$user_admin" || -z "$pass_admin" ]]; then
-    echo "¡El usuario y la contraseña no pueden estar vacíos!"
-    sleep 2
-    pmenu
-    return
-  fi
-
-  echo "Creando usuario administrador..."
-  cd /etc/DTunnel
-
-  # Ejecución del script auxiliar (por ejemplo, con ts-node o node)
-  # Opción A: Si usas un script ejecutable en JS/TS
-  npx ts-node src/createAdmin.ts "$user_admin" "$pass_admin"
-  
-  # Opción B: O si ejecutas un comando npm específico:
-  # npm run create-admin "$user_admin" "$pass_admin"
-
-  echo
-  echo "¡Operación completada!"
-  sleep 3
-  pmenu
-}
-
 #[[ ! -e /etc/DTunnel/src/index.ts ]] && exit 0
 
 pmenu() {
@@ -120,7 +89,6 @@ pmenu() {
   echo "5. Restaurar copia de seguridad"
   echo "6. Activar Auto backup"
   echo "7. Eliminar panel"
-  echo "8. Crear usuario administrador"
   echo "0. Salir"
   read -p "> " resp
   if [[ $resp = "1" ]]; then
@@ -148,8 +116,6 @@ pmenu() {
     autobackup
   elif [[ $resp = "7" ]]; then
     removerpanel
-  elif [[ $resp = "8" ]]; then
-    crearadmin
   elif [[ $resp = "0" ]]; then
     echo "Saliendo..."
     exit 0
